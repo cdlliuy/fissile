@@ -9,7 +9,7 @@ cd $GOPATH/src/github.com/SUSE/fissile
 GIT_ROOT=${GIT_ROOT:-$(git rev-parse --show-toplevel)}
 
 . ${GIT_ROOT}/make/include/versioning
-echo -e "$GIT_TAG-$GIT_COMMITS-$GIT_SHA" > .version
+echo ${GIT_TAG}-${GIT_COMMITS}-${GIT_SHA} > .version
 
 cd $GIT_ROOT/..
 tar czvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz fissile
