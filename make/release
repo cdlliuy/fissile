@@ -3,7 +3,7 @@
 
 go get -d github.com/SUSE/fissile
 
-pushd $(pwd)
+WD=$(pwd)
 cd $GOPATH/src/github.com/SUSE/fissile
 
 GIT_ROOT=${GIT_ROOT:-$(git rev-parse --show-toplevel)}
@@ -13,7 +13,7 @@ echo -e "$GIT_TAG-$GIT_COMMITS-$GIT_SHA" > .version
 
 cd $GIT_ROOT/..
 tar czvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz fissile
-popd
+cd $WD
 
-mv $GOPATH/src/github.com/SUSE/fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz .
+#mv $GOPATH/src/github.com/SUSE/fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz .
 
