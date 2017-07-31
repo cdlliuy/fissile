@@ -7,7 +7,7 @@ SRC=`basename $(pwd)`
 echo ${GIT_TAG}-${GIT_COMMITS}-${GIT_SHA} > .version
 
 cd ..
-tar --exclude=.git -cJvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tar.xz $SRC 
+tar --exclude=.git -czvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tar.gz $SRC 
 cd $SRC
 
 #mv $GOPATH/src/github.com/SUSE/fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz .
