@@ -8,9 +8,9 @@ set -o errexit -o nounset
 
 GIT_ROOT=${GIT_ROOT:-$(git rev-parse --show-toplevel)}
 if [ -e .version ]; then
-    GIT_DESCRIBE=${GIT_DESCRIBE:-$(git describe --tags --long)}
-else
     GIT_DESCRIBE=$(cat .version)
+else
+    GIT_DESCRIBE=${GIT_DESCRIBE:-$(git describe --tags --long)}
 fi
 GIT_BRANCH=${GIT_BRANCH:-$(git name-rev --name-only HEAD)}
 
