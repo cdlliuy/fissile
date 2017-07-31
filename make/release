@@ -1,19 +1,13 @@
 #!/bin/sh
 
-
-go get -d github.com/SUSE/fissile
-
-WD=$(pwd)
-cd $GOPATH/src/github.com/SUSE/fissile
-
 GIT_ROOT=${GIT_ROOT:-$(git rev-parse --show-toplevel)}
 
 . ${GIT_ROOT}/make/include/versioning
 echo ${GIT_TAG}-${GIT_COMMITS}-${GIT_SHA} > .version
 
-cd $GIT_ROOT/..
+cd ..
 tar --exclude=.git -cJvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tar.xz fissile
-cd $WD
+cd -
 
 #mv $GOPATH/src/github.com/SUSE/fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz .
 
