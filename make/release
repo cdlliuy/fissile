@@ -12,7 +12,7 @@ GIT_ROOT=${GIT_ROOT:-$(git rev-parse --show-toplevel)}
 echo ${GIT_TAG}-${GIT_COMMITS}-${GIT_SHA} > .version
 
 cd $GIT_ROOT/..
-tar czvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz fissile
+tar --exclude=.git -cJvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tar.xz fissile
 cd $WD
 
 #mv $GOPATH/src/github.com/SUSE/fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz .
