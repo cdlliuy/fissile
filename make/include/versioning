@@ -7,11 +7,7 @@ test -n "${XTRACE}" && set -o xtrace
 set -o errexit -o nounset
 
 GIT_ROOT=${GIT_ROOT:-$(git rev-parse --show-toplevel)}
-if [ -e .version ]; then
-    GIT_DESCRIBE=$(cat .version)
-else
-    GIT_DESCRIBE=${GIT_DESCRIBE:-$(git describe --tags --long)}
-fi
+GIT_DESCRIBE=${GIT_DESCRIBE:-$(git describe --tags --long)}
 GIT_BRANCH=${GIT_BRANCH:-$(git name-rev --name-only HEAD)}
 
 GIT_TAG=${GIT_TAG:-$(echo ${GIT_DESCRIBE} | awk -F - '{ print $1 }' )}
