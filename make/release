@@ -1,13 +1,14 @@
 #!/bin/sh
 
 GIT_ROOT=${GIT_ROOT:-$(git rev-parse --show-toplevel)}
+SRC=`basename $(pwd)`
 
 . ${GIT_ROOT}/make/include/versioning
 echo ${GIT_TAG}-${GIT_COMMITS}-${GIT_SHA} > .version
 
 cd ..
-tar --exclude=.git -cJvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tar.xz fissile
-cd -
+tar --exclude=.git -cJvf fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tar.xz $SRC 
+cd $SRC
 
 #mv $GOPATH/src/github.com/SUSE/fissile-$GIT_TAG-$GIT_COMMITS-$GIT_SHA.tgz .
 
