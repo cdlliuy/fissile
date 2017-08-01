@@ -1,6 +1,6 @@
 #!/usr/bin/env make
 
-ifeq ("$(wildcard $(.version))","")
+ifeq ($(GIT_ROOT),)
 GIT_ROOT:=$(shell git rev-parse --show-toplevel)
 endif
 
